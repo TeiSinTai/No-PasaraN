@@ -34,3 +34,5 @@ Thumbs.db*
 *.apk
 *.log
 iOS
+
+*.zip

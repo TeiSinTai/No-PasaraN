@@ -17,6 +17,7 @@ public class Wave {
 	public float coinPValue = 0.5f;
 	public GameObject creeperPrefab;
 	public GameObject coinPrefab;
+	public int banishCost;
 
 
 }

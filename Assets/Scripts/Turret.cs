@@ -97,7 +97,7 @@ public class Turret : MonoBehaviour {
 					Shoot ();
 				}
 			}
-			transform.Rotate (0, patrolSpeed, 0);
+			transform.Rotate (0, Mathf.LerpUnclamped(0.0f,1.0f,patrolSpeed/(Time.deltaTime+0.1f)), 0);
 			yield return null;
 		}
 	}

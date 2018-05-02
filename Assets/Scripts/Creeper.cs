@@ -9,8 +9,10 @@ public class Creeper : MonoBehaviour {
 	public float targetDistance = 0.1f;
 	private int[] turretDamage;
 	public GameObject coinPrefab;
-	public float coinPValue=0.5f;
+	private float coinPValue=0.5f;
 	public int turretMaxCount = 50;
+	private int banishCost = 1;
+	public Transform coinSpawn;
 
 	// Use this for initialization
 	void Start () {
@@ -28,7 +30,7 @@ public class Creeper : MonoBehaviour {
 		//Debug.Log (totalDamage.ToString() + " := " + debugString);
 	}
 
-	public void Init(int _health, float _speed, float _accel, float _angSpeed, GameObject _coinPrefab, float _coinPValue, Transform _creeperDestination){
+	public void Init(int _health, float _speed, float _accel, float _angSpeed, GameObject _coinPrefab, float _coinPValue, int _banishCost, Transform _creeperDestination){
 		health = _health;
 		navMesh = GetComponent<NavMeshAgent> ();
 		navMesh.speed = _speed;
@@ -37,6 +39,7 @@ public class Creeper : MonoBehaviour {
 		navMesh.destination = _creeperDestination.position;
 		coinPrefab = _coinPrefab;
 		coinPValue = _coinPValue;
+		banishCost = _banishCost;
 		turretDamage = new int[turretMaxCount];
 	}
 
@@ -45,8 +48,12 @@ public class Creeper : MonoBehaviour {
 		float dist = navMesh.remainingDistance;
 		if (dist != Mathf.Infinity && navMesh.pathStatus == NavMeshPathStatus.PathComplete & dist < targetDistance) {
 			// Finish
-			LogTurretDamage();
-			WaveManager.CreeperDies ();
+			if (FinanceManager.TryWithdrawal (banishCost)) {
+				LogTurretDamage();
+				WaveManager.CreeperDies ();
+			} else {
+				WaveManager.Defeat ();
+			}
 			Destroy(gameObject);
 		}
 	}
@@ -59,16 +66,19 @@ public class Creeper : MonoBehaviour {
 		}
 		if (health > 0) {
 			health -= damageToTake;
+			//FIXME sfx take damage
 		} else {
 			//DO NOT KICK DEAD CREEPERS. 
 			return false;
 		}
 		if (health <= 0) {
 			//Die
+			//FIXME sfx creeper die
+			//FIXME spawn creeper corpse
 			Destroy (gameObject);
 			LogTurretDamage();
 			if (Random.value > coinPValue) {
-				Instantiate (coinPrefab, transform.position, transform.rotation);
+				Instantiate (coinPrefab, coinSpawn.position, coinSpawn.rotation);
 			}
 			WaveManager.CreeperDies ();
 			return true;

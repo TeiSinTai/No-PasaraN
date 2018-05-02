@@ -899,7 +899,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 914705ad008ba4385b3632c41292b32b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  patrolSpeed: 6
+  patrolSpeed: 0.2
   retargetTime: 0.5
   turretRange: 23
   turretShootDelay: 0.1

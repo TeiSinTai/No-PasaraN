@@ -13,6 +13,7 @@ public class MagicStoneInterface : MonoBehaviour {
 	public GameObject turretCreator;
 	private GameObject myTurret;
 	private static MagicStoneInterface currentMagicStone = null;
+	private static int turretCount = 0;
 
 
 
@@ -26,9 +27,21 @@ public class MagicStoneInterface : MonoBehaviour {
 		
 	}
 
-	public void CreateTurret(){
-		myTurret = Instantiate (turretPrefab, teleportObject.transform.position, teleportObject.transform.rotation);
-		myTurret.GetComponent<Turret> ().Init ();
+	public static void CreateTurret(){
+		MagicStoneInterface instance = currentMagicStone;
+		instance.myTurret = Instantiate (instance.turretPrefab, instance.teleportObject.transform.position,new Quaternion(0,0,0,0));
+		instance.myTurret.GetComponent<Turret> ().Init ();
+		instance.myTurret.GetComponent<Turret> ().turretNumber = turretCount;
+		turretCount++;
+	}
+
+	public static GameObject GetTurret(){
+		MagicStoneInterface instance = currentMagicStone;
+		if(instance.myTurret!=null){
+			return instance.myTurret;
+		}else{
+			return null;
+		}
 	}
 
 

@@ -7,6 +7,8 @@ TagManager:
   - Creeper
   - Turret
   - TeleportPoint
+  - Coin
+  - MoneyBag
   layers:
   - Default
   - TransparentFX
