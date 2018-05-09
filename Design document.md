@@ -155,8 +155,10 @@ Turret.cs -> TargetFollow()
 * Church3D
 * Fantasy Defensive Structures
 
-* [beetle CC-BY] (https://poly.google.com/view/3WS86lkqYFy)
+
 * [numbers CC-BY](https://poly.google.com/view/6-duGG0WcCZ)
+* Google Poly: many models
+* [Sand texture CC0](https://3dtextures.me/2017/03/23/sand-002/)
 
 [Как ссылаться на чужие ассеты и всё такое](https://wiki.creativecommons.org/wiki/Best_practices_for_attribution)
 
