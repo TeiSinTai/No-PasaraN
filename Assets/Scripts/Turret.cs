@@ -63,6 +63,7 @@ public class Turret : MonoBehaviour {
 	}
 
 	private void Patrol(){
+		cannon.transform.rotation.eulerAngles.Set(0.0f,90.0f,0.0f);
 		if (currentTask == TurretPhase.Patrol) {
 			StartCoroutine ("Patrolling");
 		} else if (currentTask == TurretPhase.Shoot) {

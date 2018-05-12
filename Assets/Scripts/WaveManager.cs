@@ -5,6 +5,7 @@ using UnityEngine.Events;
 
 public class WaveManager: MonoBehaviour{
 	public Transform creeperDestination;
+	public Transform creeperSpawnPoint;
 
 	public CreeperDiesEvent DisplayCreepers;
 	public WaveQueuedEvent WaveQueued;
@@ -142,7 +143,7 @@ public class WaveManager: MonoBehaviour{
 
 		timeBetweenCreepers = new WaitForSeconds (Waves [waveNumber].creeperSpawnTime);
 		while (creepersCount < creepersToSpawn) {
-			GameObject creeper = Instantiate (Waves[waveNumber].creeperPrefab, transform.position, transform.rotation);
+			GameObject creeper = Instantiate (Waves[waveNumber].creeperPrefab, creeperSpawnPoint.position, creeperSpawnPoint.rotation);
 			creeper.GetComponent<Creeper> ().Init (
 				Waves[waveNumber].creeperHealth,
 				Waves[waveNumber].creeperSpeed, 
