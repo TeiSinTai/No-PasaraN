@@ -13,7 +13,12 @@ ModelImporter:
     2300000: Waterfall_mesh
     3300000: Waterfall_mesh
     4300000: Waterfall_mesh
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Waterfall_mat1
+    second: {fileID: 2100000, guid: 65521013d7ff4406fa4c4ea9a93c9b3f, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

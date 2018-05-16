@@ -13,7 +13,12 @@ ModelImporter:
     2300000: Plane007
     3300000: Plane007
     4300000: Plane007
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: _crayfishdiffuse
+    second: {fileID: 2100000, guid: aa8bf68a621d14eb89faf575404f8643, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

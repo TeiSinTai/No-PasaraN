@@ -9,6 +9,8 @@ public class WaveManager: MonoBehaviour{
 
 	public CreeperDiesEvent DisplayCreepers;
 	public WaveQueuedEvent WaveQueued;
+	public GameStartEvent gameStartEvent;
+	public UnityEvent waveEndedEvent;
 	private int deadCreeperCount=0;
 
 
@@ -16,7 +18,10 @@ public class WaveManager: MonoBehaviour{
 	public class CreeperDiesEvent : UnityEvent<int> {};
 
 	[System.Serializable]
-	public class WaveQueuedEvent : UnityEvent<float,int> {}; //queued wave number, number of wave
+	public class GameStartEvent : UnityEvent<int> {}; 
+
+	[System.Serializable]
+	public class WaveQueuedEvent : UnityEvent<float,int> {}; //time before wave, queued wave number
 
 	public int startMoney;
 	public Wave[] Waves;
@@ -26,7 +31,7 @@ public class WaveManager: MonoBehaviour{
 	private int waveNumber;
 	private int currentCreeperCount=0;
 	public enum WaveManagerPhase {Rest, WaveQueue, SpawnCreepers, StopGame};
-	public WaveManagerPhase currentPhase;
+	private WaveManagerPhase currentPhase;
 
 	public static WaveManagerPhase getCurrentPhase(){
 		return instance.currentPhase;
@@ -83,6 +88,9 @@ public class WaveManager: MonoBehaviour{
 		waveNumber = 0;
 		currentPhase = WaveManagerPhase.Rest;
 		Debug.Log ("Start waves");
+		if (gameStartEvent != null) {
+			gameStartEvent.Invoke (Waves.Length);
+		}
 		FinanceManager.AddCoin (startMoney);
 		StartCoroutine("WaveQueueRoutine");
 	}
@@ -157,6 +165,9 @@ public class WaveManager: MonoBehaviour{
 			creepersCount++;
 			Debug.Log ("Creeper spawned: " + creepersCount.ToString ());
 			yield return timeBetweenCreepers;
+		}
+		if (waveEndedEvent != null) {
+			waveEndedEvent.Invoke ();
 		}
 		currentPhase = WaveManagerPhase.Rest;
 		Debug.Log ("Wave " + waveNumber.ToString () + " spawn end");

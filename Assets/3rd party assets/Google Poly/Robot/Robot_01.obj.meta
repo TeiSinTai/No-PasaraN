@@ -18,7 +18,37 @@ ModelImporter:
     2300000: default
     3300000: default
     4300000: default
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 1A1A1A
+    second: {fileID: 2100000, guid: 239e66c3e43b04e69902a571fd85601b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 455A64
+    second: {fileID: 2100000, guid: 78770e1c772e345e2b27ff8c2f75b182, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 4CAF50
+    second: {fileID: 2100000, guid: 1350d5524870344268575a2b0e260e24, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 78909C
+    second: {fileID: 2100000, guid: 97421d3171e3440f2a8461e026932312, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: F44336
+    second: {fileID: 2100000, guid: ca9c3aded2bce493eb21640057464eee, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FFFFFF
+    second: {fileID: 2100000, guid: 3b50c350859ba46c6ad6e0883fd5e4d8, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
