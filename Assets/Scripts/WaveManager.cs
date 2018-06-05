@@ -23,6 +23,8 @@ public class WaveManager: MonoBehaviour{
 	[System.Serializable]
 	public class WaveQueuedEvent : UnityEvent<float,int> {}; //time before wave, queued wave number
 
+	public UnityEvent gameEndedEvent;
+
 	public int startMoney;
 	public Wave[] Waves;
 	private WaitForSeconds timeBeforeWave;
@@ -116,6 +118,9 @@ public class WaveManager: MonoBehaviour{
 		Debug.Log ("Victory. Balance: " + FinanceManager.GetBalance());
 		instance.StopAllCoroutines ();
 		instance.currentPhase = WaveManagerPhase.StopGame;
+		if (instance.gameEndedEvent != null) {
+			instance.gameEndedEvent.Invoke ();
+		}
 	}
 
 	public static void Defeat(){
@@ -128,6 +133,9 @@ public class WaveManager: MonoBehaviour{
 		instance.StopAllCoroutines ();
 		instance.currentPhase = WaveManagerPhase.StopGame;
 		Debug.Log ("Defeat");
+		if (instance.gameEndedEvent != null) {
+			instance.gameEndedEvent.Invoke ();
+		}
 	}
 
 	private IEnumerator WaveQueueRoutine(){

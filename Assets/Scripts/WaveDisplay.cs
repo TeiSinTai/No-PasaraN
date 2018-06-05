@@ -35,7 +35,8 @@ public class WaveDisplay : MonoBehaviour {
 		float endTime = Time.time + goingUpTime;
 		Vector3 oldPosition = transform.position;
 		while (Time.time < endTime) {
-			transform.position.Set (oldPosition.x, Mathf.Lerp (oldPosition.y, topPosition.position.y, (Time.time-startTime) / goingUpTime),oldPosition.z);
+			//transform.position.Set (oldPosition.x, Mathf.Lerp (oldPosition.y, topPosition.position.y, (Time.time-startTime) / goingUpTime),oldPosition.z);
+			transform.position = VectorLerp (oldPosition,topPosition.position ,  (Time.time-startTime) / goingUpTime);
 			yield return null;
 		}
 	}
