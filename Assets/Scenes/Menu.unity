@@ -2620,6 +2620,7 @@ GameObject:
   - component: {fileID: 827078724}
   - component: {fileID: 827078723}
   - component: {fileID: 827078722}
+  - component: {fileID: 827078725}
   m_Layer: 0
   m_Name: MagicBall
   m_TagString: Untagged
@@ -2654,7 +2655,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 42b8d07932fa9492b8be9fcde88540ce, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2693,6 +2694,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 827078720}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &827078725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 827078720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d41089c6872b4db7a3c258eb24375c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 0.1
 --- !u!1001 &830469624
 Prefab:
   m_ObjectHideFlags: 0

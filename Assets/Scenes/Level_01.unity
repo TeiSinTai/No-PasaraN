@@ -3123,7 +3123,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 42b8d07932fa9492b8be9fcde88540ce, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3647,6 +3647,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moneyBag: {fileID: 541691067}
   coinGatherDistanceSqr: 20
+--- !u!114 &945275081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 945275078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32e357fe38c4740d39a63b1cec4b7d68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  imageWidth: 4096
+  saveAsJPEG: 1
 --- !u!4 &952490783 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 10828b613ac53c54e8cac06b56c55319, type: 3}
